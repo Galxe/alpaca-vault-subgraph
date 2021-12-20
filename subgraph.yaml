@@ -1,0 +1,146 @@
+specVersion: 0.0.3
+description: Alpaca Finance is the largest lending protocol allowing leveraged yield farming on Binance Smart Chain. It helps lenders to earn safe and stable yields, and offers borrowers undercollateralized loans for leveraged yield farming positions, vastly multiplying their farming principals and resulting profits.‌ Furthermore, Alpacas are a virtuous breed. That’s why, we are a fair-launch project with no pre-sale, no investor, and no pre-mine. This is a product built by the Alpacas, for the Alpacas.
+repository: https://github.com/ProjectGalaxyHQ/alpaca-vault-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ibBNB
+    network: bsc
+    source:
+      address: '0xd7D069493685A581d27824Fc46EdA46B7EfC0063'
+      abi: ERC20
+      startBlock: 5213456
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: ibBUSD
+    network: bsc
+    source:
+      address: '0x7C9e73d4C71dae564d41F78d56439bB4ba87592f'
+      abi: ERC20
+      startBlock: 5213616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: ibETH
+    network: bsc
+    source:
+      address: '0xbfF4a34A4644a113E8200D7F1D79b3555f723AfE'
+      abi: ERC20
+      startBlock: 6322674
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: ibALPACA
+    network: bsc
+    source:
+      address: '0xf1bE8ecC990cBcb90e166b71E368299f0116d421'
+      abi: ERC20
+      startBlock: 6865780
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer                    
+  - kind: ethereum/contract
+    name: ibUSDT
+    network: bsc
+    source:
+      address: '0x158Da805682BdC8ee32d52833aD41E74bb951E59'
+      abi: ERC20
+      startBlock: 7732507
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: ibBTCB
+    network: bsc
+    source:
+      address: '0x08FC9Ba2cAc74742177e0afC3dC8Aed6961c24e7'
+      abi: ERC20
+      startBlock: 7771427
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: ibTUSD
+    network: bsc
+    source:
+      address: '0x3282d2a151ca00BfE7ed17Aa16E42880248CD3Cd'
+      abi: ERC20
+      startBlock: 8494541
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ibalpaca.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer          
